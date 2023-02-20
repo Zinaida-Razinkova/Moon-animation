@@ -1,0 +1,161 @@
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
+
+html,
+body {
+    height: 100%;
+    line-height: 1;
+}
+
+.wrapper {
+    min-height: 100%;
+    overflow: clip;
+    position: relative;
+}
+
+.page__clouds {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10%;
+
+    animation: clouds-show 1s ease forwards;
+}
+
+.page__cloud {
+    transform-origin: top;
+}
+
+.page__cloud:first-child {
+    animation: clouds 7s infinite ease-in-out alternate;
+}
+.page__cloud:last-child {
+    animation: clouds 6.6s infinite ease-in-out alternate;
+}
+
+.page__cloud img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: top;
+}
+
+@keyframes clouds {
+    0% {
+        transform: rotate(-5deg);
+    }
+       100% {
+            transform: rotate(5deg);
+        }
+}
+
+@keyframes clouds-show {
+    0% {
+        transform: translate(0px, -100%);
+    }
+
+    100% {
+        transform: translate(0px, 0%);
+    }
+}
+
+
+.moon {
+    position: absolute;
+    top: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+
+.moon__box {
+    width: 90vh;
+        max-width: 80%;
+        transform: translate(-15%, 0px);
+}
+
+.moon__item {
+    position: relative;
+    background-color: #000;
+    display: block;
+    padding-bottom: 100%;
+    border-radius: 50%;
+    transform-origin: bottom ;
+    animation: moon 5s ease alternate forwards 0.5s;
+}
+
+.moon__item::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -4px;
+    width: 102%;
+    height: 102%;
+    border-radius: 50%;
+    background-color: #fff;
+    animation: moon-line 4s ease alternate forwards 0.5s;
+}
+
+@keyframes moon {
+    0% {
+        transform: rotate(-10deg);
+    }
+
+        30% {
+            transform: rotate(10deg);
+        }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes moon-line {
+    0% {
+        transform: translate(0px, 0px);
+    }
+
+    100% {
+        transform: translate(-30%, 0px);
+    }
+}
